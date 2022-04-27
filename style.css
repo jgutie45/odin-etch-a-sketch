@@ -15,3 +15,21 @@
     
 }
 
+.button-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 50px;
+}
+
+.clear-button{
+    background-color: #2E76CF;
+    font-size: 20px;
+    border-radius: 4px;
+    color: #FFFFFF;
+}
+
+.clear-button:hover{
+    cursor: pointer;
+    background-color: #00008B;
+}
