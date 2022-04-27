@@ -1,0 +1,17 @@
+.container{
+    border: 1px solid black;
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-auto-rows: minmax(25px, auto);
+    gap: 0px;
+    margin: 100px;
+}
+.grid-item {
+    border: 1px solid black;
+}
+
+.grid-item:hover{
+    cursor: pointer;
+    
+}
+
