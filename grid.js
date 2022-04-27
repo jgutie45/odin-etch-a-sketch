@@ -17,6 +17,13 @@ for(let i = 0; i < totalGridItems; i++){
     container.appendChild(creatingDivs(i));
 }
 
+const gridItemSpace = document.querySelectorAll('.grid-item');
+
+gridItemSpace.forEach( item => {
+    item.addEventListener('mouseover', () => {
+        item.style.backgroundColor = "#000000";
+    });
+});
 
 
 
