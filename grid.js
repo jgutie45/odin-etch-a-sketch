@@ -10,18 +10,74 @@ function creatingDivs(textNode){
     return gridItem;
 }
 
-// adding gridItems
-for(let i = 0; i < totalGridItems; i++){
-    container.appendChild(creatingDivs(i));
+function createOriginalGrid(){
+    // adding gridItems
+    for(let i = 0; i < totalGridItems; i++){
+        container.appendChild(creatingDivs(i));
+    }
+
+    // add event listener
+    colorChangerEventListener();
 }
 
-// added event listener to make mouseover
-const gridItemSpace = document.querySelectorAll('.grid-item');
+function colorChangerEventListener(){
+    // added event listener to make mouseover to change grid items to black
+    const gridItemSpace = document.querySelectorAll('.grid-item');
 
-gridItemSpace.forEach( item => {
-    item.addEventListener('mouseover', () => {
-        item.style.backgroundColor = "#000000";
+    gridItemSpace.forEach( item => {
+        item.addEventListener('mouseover', () => {
+            item.style.backgroundColor = "#000000";
+        });
     });
+}
+
+createOriginalGrid(); 
+
+// section of Clear Button
+const clearButton = document.querySelector('.clear-button');
+
+let promptSizeOfGrid;
+
+// clear grid etch a sketch 
+function removeGrid(){
+    const gridItems = document.querySelectorAll('.grid-item');
+    gridItems.forEach(e => e.remove());  
+}  
+
+// create new grid with event listeners
+function createGrid(userInput){
+    if(userInput === ""){
+        container.style.setProperty('grid-template-columns', 'repeat(' + maximumColumn + ',auto)');
+        removeGrid();
+        createOriginalGrid(); 
+    }
+    else{
+        console.log("User Input: " + userInput); 
+        removeGrid();
+        let totalSizeOfGrid = userInput * userInput; 
+        container.style.setProperty('grid-template-columns', 'repeat(' + userInput + ',auto)');
+        for(let i = 0; i < totalSizeOfGrid; i++){
+            container.appendChild(creatingDivs(i));
+        }
+        // add event listener
+        colorChangerEventListener();
+    }
+}
+
+function promptSizeCheck(promptSizeOfGrid){
+    if(promptSizeOfGrid < 100){
+        createGrid(promptSizeOfGrid);
+    }
+    else if(promptSizeOfGrid > 100){
+    
+    }
+}
+
+clearButton.addEventListener('click', () =>
+{
+    // ask user for input for size of grid
+    promptSizeOfGrid = prompt("Enter size of grid you pefer (Max: 100)");
+    createGrid(promptSizeOfGrid);
 });
 
 
