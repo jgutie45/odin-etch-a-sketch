@@ -1,13 +1,19 @@
+.grid-container{
+    display: flex;
+    justify-content: center;
+}
 .container{
     border: 1px solid black;
     display: grid;
-    grid-template-columns: repeat(16, 1fr);
-    grid-auto-rows: minmax(25px, auto);
+    grid-template-columns: repeat(16, auto);
+    grid-auto-rows: auto;
     gap: 0px;
-    margin: 100px;
+    font-size: 25px;
 }
 .grid-item {
     border: 1px solid black;
+    width: 30px;
+    height: 30px;
 }
 
 .grid-item:hover{
@@ -24,7 +30,7 @@
 
 .clear-button{
     background-color: #2E76CF;
-    font-size: 20px;
+    font-size: 25px;
     border-radius: 4px;
     color: #FFFFFF;
 }

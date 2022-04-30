@@ -6,8 +6,6 @@ const totalGridItems = 256;
 function creatingDivs(textNode){
     // adding grid-item class
     const gridItem = document.createElement('div');
-    let text = document.createTextNode(textNode);
-    gridItem.appendChild(text);
     gridItem.classList.add('grid-item');
     return gridItem;
 }
@@ -17,6 +15,7 @@ for(let i = 0; i < totalGridItems; i++){
     container.appendChild(creatingDivs(i));
 }
 
+// added event listener to make mouseover
 const gridItemSpace = document.querySelectorAll('.grid-item');
 
 gridItemSpace.forEach( item => {
@@ -24,6 +23,7 @@ gridItemSpace.forEach( item => {
         item.style.backgroundColor = "#000000";
     });
 });
+
 
 
 
