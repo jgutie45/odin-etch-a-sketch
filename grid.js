@@ -65,18 +65,17 @@ function createGrid(userInput){
 }
 
 function promptSizeCheck(promptSizeOfGrid){
-    if(promptSizeOfGrid < 100){
-        createGrid(promptSizeOfGrid);
+    while(isNaN(promptSizeOfGrid) || promptSizeOfGrid < 0 || promptSizeOfGrid > 100){
+        promptSizeOfGrid = prompt("Enter size of grid you pefer (Max: 100)");
     }
-    else if(promptSizeOfGrid > 100){
-    
-    }
+    return promptSizeOfGrid;
 }
 
 clearButton.addEventListener('click', () =>
 {
     // ask user for input for size of grid
     promptSizeOfGrid = prompt("Enter size of grid you pefer (Max: 100)");
+    promptSizeCheck(promptSizeOfGrid);
     createGrid(promptSizeOfGrid);
 });
 
